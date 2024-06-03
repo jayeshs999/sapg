@@ -1,2 +1,3 @@
-# sapg
-Code for SAPG: Split and Aggregate Policy Gradients (ICML 2024)
+# SAPG: Split and Aggregate Policy Gradients (ICML 2024)
+
+Code coming soon!
