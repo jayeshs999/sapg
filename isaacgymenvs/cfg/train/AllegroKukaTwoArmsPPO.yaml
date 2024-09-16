@@ -1,0 +1,3 @@
+defaults:
+  - AllegroKukaPPO
+  - _self_

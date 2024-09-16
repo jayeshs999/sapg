@@ -1,0 +1,24 @@
+defaults:
+  - ContinuousMountainCarPPO
+  - _self_
+
+params:
+  network:
+    mlp:
+      units: [32, 32]
+      activation: elu
+      
+      initializer:
+        name: default
+      regularizer:
+        name: None
+    rnn:
+      name: lstm
+      units: 32
+      layers: 1
+      before_mlp: True
+      layer_norm: True
+
+  config:
+    name: ${resolve_default:ContinuousMountainCarLSTMPPO,${....experiment}}
+    

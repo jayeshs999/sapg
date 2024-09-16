@@ -1,0 +1,29 @@
+defaults:
+  - ShadowHandPPO
+  - _self_
+
+params:
+  network:
+    mlp:
+      units: [512, 512, 256]
+      activation: elu
+      d2rl: False
+
+      initializer:
+        name: default
+      regularizer:
+        name: None
+
+    rnn:
+      name: lstm
+      units: 256
+      layers: 1
+      before_mlp: False
+      concat_input: True
+      layer_norm: True
+  
+  config:
+    name: ${resolve_default:ShadowHandLSTM,${....experiment}}
+    horizon_length: 32
+    minibatch_size: 16384
+    mini_epochs: 4

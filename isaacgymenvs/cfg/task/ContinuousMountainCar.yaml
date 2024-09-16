@@ -1,0 +1,16 @@
+# used to create the object
+name: ContinuousMountainCar
+
+physics_engine: ${..physics_engine}
+
+# if given, will override the device setting in gym. 
+env:
+  numEnvs: ${resolve_default:512,${...num_envs}}
+  clipActions: 1.0
+
+  # set to True if you use camera sensors in the environment
+  enableCameraSensors: False
+  goodResetBoundary: 0
+
+sim:
+  use_gpu_pipeline: False

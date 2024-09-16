@@ -1,0 +1,6 @@
+defaults:
+  - AllegroHand
+  - _self_
+
+env:
+  observationType: "full_no_vel"
