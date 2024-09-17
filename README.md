@@ -72,26 +72,38 @@ pip install -e .
 
 ### Reproducing performance
  
-We provide the exact commands which can be used to reproduce the performance of policies trained with SAPG on different environments
+We provide the exact commands which can be used to reproduce the performance of policies trained with SAPG as well as PPO on different environments
 
 ```bash
 # Allegro Kuka Regrasping
 ./scripts/train_allegro_kuka.sh regrasping "test" 1 24576 [] --sapg --lstm --num-expl-coef-blocks=6 --wandb-entity <ENTITY_NAME> --ir-type=none
 
+./scripts/train_allegro_kuka.sh regrasping "test" 1 24576 [] --lstm --wandb-entity <ENTITY_NAME> # PPO
+
 # Allegro Kuka Throw
 ./scripts/train_allegro_kuka.sh throw "test" 1 24576 [] --sapg --lstm --num-expl-coef-blocks=6 --wandb-entity <ENTITY_NAME> --ir-type=none
+
+./scripts/train_allegro_kuka.sh throw "test" 1 24576 [] --lstm --wandb-entity <ENTITY_NAME> # PPO
 
 # Allegro Kuka Reorientation
 ./scripts/train_allegro_kuka.sh reorientation "test" 1 24576 [] --sapg --lstm --num-expl-coef-blocks=6 --wandb-entity <ENTITY_NAME> --ir-type=entropy --ir-coef-scale=0.005
 
+./scripts/train_allegro_kuka.sh reorientation "test" 1 24576 [] --lstm --wandb-entity <ENTITY_NAME> # PPO
+
 # Allegro Kuka Two Arms Reorientation (Multi-GPU run)
-./scripts/train_allegro_kuka_two_arms.sh reorientation "test" 6 4104  [] --sapg --lstm --num-expl-coef-blocks=6 --wandb-entity <ENTITY_NAME> --ir-type=entropy --ir-coef-scale=0.002
+./scripts/train_allegro_kuka_two_arms.sh reorientation "test" 6 4104  [] --sapg --lstm --num-expl-coef-blocks=6 --wandb-entity <ENTITY_NAME> --ir-type=entropy --ir-coef-scale=0.002 --multi-gpu
+
+./scripts/train_allegro_kuka_two_arms.sh reorientation "test" 6 4104  [] --lstm --wandb-entity <ENTITY_NAME> --multi-gpu # PPO
 
 # In-hand reorientation with Shadow Hand
 ./scripts/train.sh shadow_hand "test" 1 24576 [] --sapg --num-expl-coef-blocks=6 --wandb-entity <ENTITY_NAME> --ir-type=entropy --ir-coef-scale=0.005
 
+./scripts/train.sh shadow_hand "test" 1 24576 [] --wandb-entity <ENTITY_NAME> # PPO
+
 # In-hand reorientation with Allegro Hand
 ./scripts/train.sh allegro_hand "test" 1 24576 [] --sapg --num-expl-coef-blocks=6 --wandb-entity <ENTITY_NAME> --ir-type=none
+
+./scripts/train.sh allegro_hand "test" 1 24576 [] --wandb-entity <ENTITY_NAME> # PPO
 
 ```
 
