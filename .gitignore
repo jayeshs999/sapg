@@ -35,3 +35,4 @@ outputs/
 saved_data*
 archive
 !visualization/wandb_utils.py
+!wandb_utils.py
